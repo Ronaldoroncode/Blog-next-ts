@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilo para o botão */
+.btn {
+    padding: 12px 24px; /* Espaçamento interno */
+    background-color: #007FFF; /* Cor azul */
+    color: white; /* Cor do texto */
+    font-weight: 600; /* Peso da fonte */
+    text-align: center; /* Alinhamento do texto */
+    border-radius: 8px; /* Cantos arredondados */
+    border: none; /* Remove borda */
+    cursor: pointer; /* Cursor de clique */
+    transition: background-color 0.3s ease; /* Transição suave */
+    text-decoration: none; /* Remove qualquer traço abaixo do texto */
+  }
+  
+  /* Efeito ao passar o mouse (hover) */
+  .btn:hover {
+    background-color: #0066cc; /* Cor azul mais escura */
+    box-shadow: none; /* Remove a sombra */
+  }
+  
+  
+  
