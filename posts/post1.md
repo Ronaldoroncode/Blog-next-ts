@@ -44,3 +44,15 @@ Este aqui será o primeiro de muitos postes a serem postados
 <div>
     <p>TESTE</p>
 </div>
+
+## POSTS RECOMENTADOS ESPECIALMENTE PARA VOÇÊ:
+<div class="">
+  <a href="/posts/post2" class="">
+    Tudo sobre o post 2
+    ![Uma paisagem bonita](/images/jelpi_demo.gif)
+  </a>
+  <a href="/posts/post3" class="">
+    Tudo sobre o post 3
+    ![Uma paisagem bonita](/images/pico-8-movement.gif)
+  </a>
+</div>
