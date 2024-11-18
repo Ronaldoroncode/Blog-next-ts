@@ -11,14 +11,13 @@
       'footer footer footer';
   gap: 0px;
   grid-template-columns: 1fr minmax(300px, 600px) 1fr;
+  background-color: #f5f7fa;
   
 }
 
 header {
   grid-area: header;
-  background-color: rgb(43, 128, 226);
-  color: white;
-  padding: 20px;
+  background: white;   
   position: sticky; /* Fixa o cabeçalho no topo */
   top: 0;
   left: 0;
@@ -27,29 +26,24 @@ header {
 }
 
 article {
-  grid-area: article;
-  background-color: antiquewhite;
-
+  grid-area: article;  
 }
 
 nav {
-  grid-area: nav;
-  background-color: black;
+  grid-area: nav;  
 }
 
 aside {
   grid-area: aside;
-  background-color: lightgray;
 }
 
 section {
   grid-area: section;
-  background-color: lightblue;
 }
 
 footer {
   grid-area: footer;
-  background-color: rgb(42, 165, 114);
+  background-color: #e9ecf1;
 }
 
 /* Media query para telas menores que 500px */
@@ -76,7 +70,69 @@ footer {
   }
 }
 
+.image {
+  width: 100%;
+  height: auto;
+  max-width: 450px;
+  max-height: 450px;
+  border-radius: 30px;
+}
+@media (max-width: 768) {
+  .image {
+    max-width: 3000px;
+  }
+}
+@media (max-width: 480px) {
+  .image {
+    max-width: 250px;
+  }
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Aqui está como criar um botão branco com bordas arredondadas e um design elegante. Você pode personalizá-lo conforme sua necessidade:*/
+
+
+.rounded-button {
+  /* Estilo do botão */
+  background-color: white; /* Fundo branco */
+  color: #333; /* Cor do texto (preto suave) */
+  border: 2px solid #ddd; /* Borda sutil */
+  border-radius: 25px; /* Bordas arredondadas */
+  padding: 10px 20px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  cursor: pointer; /* Cursor de clique */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve para profundidade */
+  transition: all 0.3s ease; /* Transição suave para hover */
+}
+
+.rounded-button:hover {
+  /* Efeito ao passar o mouse */
+  background-color: #f9f9f9; /* Fundo ligeiramente cinza */
+  border-color: #ccc; /* Borda mais destacada */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+  transform: scale(1.05); /* Leve aumento no tamanho */
+}
+
+.rounded-button:active {
+  /* Efeito ao clicar */
+  background-color: #f0f0f0; /* Fundo mais escuro */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
+  transform: scale(0.97); /* Leve redução no tamanho */
+}
 
 
 
@@ -120,4 +176,35 @@ footer {
     box-shadow: none; /* Remove a sombra */
   }
   
+  
+
+  .glass-button {
+    /* Estilo de vidro */
+    background: rgba(255, 255, 255, 0.2); /* Fundo translúcido */
+    backdrop-filter: blur(10px); /* Desfoque do fundo */
+    -webkit-backdrop-filter: blur(10px); /* Suporte para navegadores antigos */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Bordas sutis */
+    border-radius: 12px; /* Arredondamento */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Sombra do texto para destacar */
+    cursor: pointer; /* Cursor de clique */
+    transition: all 0.3s ease; /* Animação suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+  }
+  
+  .glass-button:hover {
+    /* Estilo ao passar o mouse */
+    background: rgba(255, 255, 255, 0.3); /* Fundo mais opaco */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+  }
+  
+  .glass-button:active {
+    /* Estilo ao clicar */
+    transform: scale(0.95); /* Leve redução no tamanho */
+    background: rgba(255, 255, 255, 0.25); /* Fundo um pouco mais escuro */
+  }
   

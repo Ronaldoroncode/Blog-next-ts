@@ -11,9 +11,9 @@ const PostPreview = (props: PostMetadata) => {
         <Image
           src={props.image}
           alt={props.title}
-          width={600}
-          height={600}
-          className="rounded-md mb-4"
+          width={450}
+          height={450}
+          className="image"
         />
         <p className="text-sm text-slate-400">{props.date}</p>
       </Link>      

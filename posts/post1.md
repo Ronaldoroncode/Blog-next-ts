@@ -19,7 +19,14 @@ Este aqui será o primeiro de muitos postes a serem postados
 <div class="mt-4">
   <a
     href="/"
-    class="btn"
+    class="glass-button"
+  >
+    HOME
+  </a>
+
+  <a
+    href="/"
+    class="rounded-button"
   >
     HOME
   </a>
