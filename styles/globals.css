@@ -1,6 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  display: grid;
+  grid-template-areas:
+      'header header header'
+      'nav article aside'
+      'footer footer footer';
+  gap: 0px;
+  grid-template-columns: 1fr minmax(300px, 600px) 1fr;
+  
+}
+
+header {
+  grid-area: header;
+  background-color: rgb(43, 128, 226);
+  color: white;
+  padding: 20px;
+  position: sticky; /* Fixa o cabeçalho no topo */
+  top: 0;
+  left: 0;
+  width: 100%; /* Garante que o cabeçalho ocupe toda a largura da tela */
+  z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+}
+
+article {
+  grid-area: article;
+  background-color: antiquewhite;
+
+}
+
+nav {
+  grid-area: nav;
+  background-color: black;
+}
+
+aside {
+  grid-area: aside;
+  background-color: lightgray;
+}
+
+section {
+  grid-area: section;
+  background-color: lightblue;
+}
+
+footer {
+  grid-area: footer;
+  background-color: rgb(42, 165, 114);
+}
+
+/* Media query para telas menores que 500px */
+@media (max-width: 500px) {
+  #container {
+      grid-template-areas:
+          'aside'
+          'article'
+          'nav'
+          'footer'
+          'header'; /* Move o header para a parte inferior */
+      grid-template-columns: 1fr; /* Configura apenas uma coluna */
+  }
+
+  header {
+      position: fixed; /* Fixa o cabeçalho na parte inferior */
+      bottom: 0; /* Coloca o cabeçalho no fundo da tela */
+      top: unset; /* Remove a fixação no topo */
+      z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+  }
+
+  body {
+      padding-bottom: 60px; /* Deixa um espaço na parte inferior para o cabeçalho fixo */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+*/
+
 
 /* Estilo para o botão */
 .btn {
@@ -21,6 +119,5 @@
     background-color: #0066cc; /* Cor azul mais escura */
     box-shadow: none; /* Remove a sombra */
   }
-  
   
   
