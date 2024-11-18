@@ -1,5 +1,5 @@
 ---
-title: "POSTE DE TESTE"
+title: "POSTE 1"
 subtitle: "MUITOS POSTE A SEREM POSTADOS"
 date: "2024-11-15"
 image: "/images/jelpi_demo.gif"
