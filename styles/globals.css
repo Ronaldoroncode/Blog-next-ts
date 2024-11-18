@@ -21,49 +21,57 @@ header {
   position: sticky; /* Fixa o cabeçalho no topo */
   top: 0;
   left: 0;
-  width: 100%; /* Garante que o cabeçalho ocupe toda a largura da tela */
+  width: 100%; /* Garante que o cabeçalho ocupe toda a largura da tela */  
   z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
 }
 
 article {
-  grid-area: article;  
+  grid-area: article;    
 }
 
 nav {
+  display: grid;
   grid-area: nav;  
+  background-color: red;
+  width: 100%;  
+  grid-template-columns: 1fr;
+  grid-template-rows: 30px 30px 30px 30px;   
 }
 
 aside {
   grid-area: aside;
-}
-
-section {
-  grid-area: section;
+  background-color: #0066cc;    
 }
 
 footer {
   grid-area: footer;
-  background-color: #e9ecf1;
+  background-color: #e9ecf1;  
 }
 
 /* Media query para telas menores que 500px */
 @media (max-width: 500px) {
   #container {
       grid-template-areas:
+          'header'
           'aside'
-          'article'
-          'nav'
+          'article'          
           'footer'
-          'header'; /* Move o header para a parte inferior */
+          'nav'; /* Move o nav para a parte inferior */
       grid-template-columns: 1fr; /* Configura apenas uma coluna */
   }
 
+
   header {
-      position: fixed; /* Fixa o cabeçalho na parte inferior */
-      bottom: 0; /* Coloca o cabeçalho no fundo da tela */
-      top: unset; /* Remove a fixação no topo */
-      z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+      position: fixed; /* Fixa o cabeçalho na parte inferior */     
   }
+  nav {
+    position: fixed; /* Fixa o cabeçalho na parte inferior */
+    bottom: 0; /* Coloca o cabeçalho no fundo da tela */
+    top: unset; /* Remove a fixação no topo */
+    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
 
   body {
       padding-bottom: 60px; /* Deixa um espaço na parte inferior para o cabeçalho fixo */
