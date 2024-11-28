@@ -225,3 +225,11 @@ footer {
     background: rgba(255, 255, 255, 0.25); /* Fundo um pouco mais escuro */
   }
   
+
+
+.card {
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+}  
