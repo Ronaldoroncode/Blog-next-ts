@@ -9,34 +9,32 @@ export default function RootLayout({
 }) {
   const header = (
     <header>
-      <div>
-        <Image
+      <Image
           src="/logo.png"
           width={40}
           height={40}
           className="mx-auto"
           alt={"logo"}
-        />
-        <Link href="/">
+      />
+      <Link href="/">
           <h1>Tech NWS</h1>
-        </Link>
-        <p>🤟 Welcome to my tech blog. 💻</p>
-      </div>
+      </Link>
+      <p>🤟 Welcome to my tech blog. 💻</p>
     </header>
   );
   const nav = (
     <nav>      
       <Link href="/">
-        <h1>Home</h1>
+        <h1 className="nav-color botao-azul">Home</h1>
       </Link>
       <Link href="/">
-        <h1>Abaut</h1>
+        <h1 className="nav-color botao-azul">Abaut</h1>
       </Link>
       <Link href="/">
-        <h1>Contact</h1>
+        <h1 className="nav-color botao-azul">Contact</h1>
       </Link>
       <Link href="/">
-        <h1>Youtube</h1>
+        <h1 className="nav-color botao-azul">Youtube</h1>
       </Link>
     </nav>
   );
@@ -51,10 +49,7 @@ export default function RootLayout({
     <footer>
       <div className="border-t border-slate-400 mt-12 py-6 text-center text-slate-400">
         <h3>Ronsof.it</h3>
-        <h3>Ronsof.it</h3>
-        <h3>Ronsof.it</h3>
-        <h3>Ronsof.it</h3>
-        <h3>Ronsof.it</h3>
+        <h3>Ronsof.it</h3>        
       </div>
     </footer>
   );

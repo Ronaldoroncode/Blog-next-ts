@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 #container {
@@ -11,81 +12,177 @@
       'footer footer footer';
   gap: 0px;
   grid-template-columns: 1fr minmax(300px, 600px) 1fr;
-  background-color: #f5f7fa;
-  
+  background-color: #f5f7fa; 
+  height: 100vh;  
 }
+
 
 header {
   grid-area: header;
-  background: white;   
-  position: sticky; /* Fixa o cabeçalho no topo */
-  top: 0;
-  left: 0;
-  width: 100%; /* Garante que o cabeçalho ocupe toda a largura da tela */  
-  z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+  background: rgb(207, 90, 90);
+  height: 10vh;
+  position: sticky; /* Isso vai fixar o header no topo */
+  top: 0; /* Alinha o header no topo da página */
+  left: 0; /* Alinha o header à esquerda */
+  width: 100%; /* Faz o header ocupar toda a largura da tela */
+  z-index: 1000; /* Garante que o header ficará acima de outros elementos */
+  display: grid; /* Define que o header vai ser um grid */
+  grid-template-columns: 1fr 3fr 1fr; /* Cria 3 colunas: a do meio mais larga */
+  margin: 0;
+  padding: 0;
+  
 }
 
+header > * {
+  justify-self: center; /* Alinha os itens horizontalmente ao centro de suas colunas */
+  align-self: center; /* Alinha os itens verticalmente ao centro de suas colunas */
+}
+
+
 article {
-  grid-area: article;    
+  grid-area: article; 
+  overflow: auto; /* Permite rolagem apenas no conteúdo do article */
+  height: 90vh;
 }
 
 nav {
-  display: grid;
-  grid-area: nav;  
+  grid-area: nav;
   background-color: red;
-  width: 100%;  
-  grid-template-columns: 1fr;
-  grid-template-rows: 30px 30px 30px 30px;
-  justify-items: end;    
+  width: 100%;
+  height: 90vh;
+  display: grid; /* Ativa o Grid Layout */
+  grid-template-columns: 1fr; /* Define uma única coluna */
+  grid-template-rows: 30px 30px 30px 30px; /* Define as linhas do grid */
+  justify-items: end; /* Alinha os itens dentro de cada célula à direita */
+  gap:25px;
+}
+
+
+.nav-color {
+  color: #000;   
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  border-radius: 50px;
+  background-color: #fff;
+  padding: 2px;
+  margin: 2px;
 }
 
 aside {
   grid-area: aside;
-  background-color: #0066cc;    
+  background-color: #0066cc;
+  width: 100%; 
+  height: 90vh; 
 }
 
 footer {
   grid-area: footer;
-  background-color: #e9ecf1;  
+  background-color:#15964b;/*#e9ecf1;*/  
+  width: 100%; 
+  height: 60vh; 
 }
+
+.card {
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+} 
+
+.botao-azul {
+  background-color: #007bff; /* Cor azul */
+  color: white; /* Texto branco */
+  padding: 10px 20px; /* Espaçamento interno */
+  border: none; /* Remove a borda */
+  border-radius: 12px; /* Cantos arredondados */
+  font-size: 16px; /* Tamanho da fonte */
+  cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
+  transition: background-color 0.3s; /* Transição suave na mudança de cor */
+  width: 200px;
+  height: 25px;
+  margin: 20px;
+}
+
+.botao-azul:hover {
+  background-color: #0056b3; /* Cor azul mais escura ao passar o mouse */
+}
+
 
 /* Media query para telas menores que 500px */
 @media (max-width: 500px) {
   #container {
-      grid-template-areas:
-          'header'          
-          'article' 
-          'aside'         
-          'footer'
-          'nav'; /* Move o nav para a parte inferior */
-      grid-template-columns: 1fr; /* Configura apenas uma coluna */
+    display: grid;
+    grid-template-areas:
+        'header'
+        'article'
+        'aside'
+        'footer'
+        'nav'; /* Move o nav para a parte inferior */
+    grid-template-columns: 1fr; /* Configura apenas uma coluna */
+    height: 100vh; /* A altura total da tela */
   }
-
 
   header {
-      height: 10 vh; 
-      justify-items: center;    
-  }
-  nav {
-    height: 10 vh;
-    position: fixed; /* Fixa o cabeçalho na parte inferior */
-    bottom: 0; /* Coloca o cabeçalho no fundo da tela */
-    top: unset; /* Remove a fixação no topo */
-    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  }
-
-  article {
-    justify-items: center;
+    position: fixed; /* Fixa o header no topo */
+    top: 0; /* Fixa no topo da tela */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Faz com que o header ocupe toda a largura */
+    height: 10vh; /* Altura do header */
+    background-color: blueviolet; /* Cor de fundo do header */
+    z-index: 1000; /* Garante que o header fique acima de outros elementos */
+    display: flex;
     justify-content: center;
+    align-items: center;
   }
 
+  article, aside, footer {
+    margin-top: 10vh; /* Diminui a margem superior para que o conteúdo não se sobreponha ao header fixo */
+    margin-bottom: 10vh; /* Dá espaço na parte inferior para o nav fixo */
+    overflow-y: auto; /* Permite rolagem vertical nos elementos que excederem o espaço disponível */
+    height: auto; /* Permite que o conteúdo tenha a altura necessária */
+  }
+
+  nav {
+    position: fixed; /* Fixa o nav na parte inferior */
+    bottom: 0; /* Coloca o nav no fundo da tela */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Faz com que o nav ocupe toda a largura */
+    height: 10vh; /* Altura do nav */
+    background-color: rgba(255, 255, 255, 0.5); /* Cor de fundo semi-transparente */
+    backdrop-filter: blur(90px); /* Aplica o desfoque no fundo do nav */
+    -webkit-backdrop-filter: blur(90px); /* Suporte para navegadores antigos */
+    z-index: 1000; /* Garante que o nav fique acima de outros elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-color {    
+    font-size: 20px;
+  }
+
+  .botao-azul {
+    background-color: #13355a; /* Cor azul */
+    color: white; /* Texto branco */
+    padding: 1px 2px; /* Espaçamento interno */
+    border: none; /* Remove a borda */
+    border-radius: 10px; /* Cantos arredondados */
+    font-size: 10px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
+    transition: background-color 0.3s; /* Transição suave na mudança de cor */
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+  }
+  
 
   body {
-      padding-bottom: 60px; /* Deixa um espaço na parte inferior para o cabeçalho fixo */
+    padding: 0; /* Remove o padding no body */
+    margin: 0; /* Remove o margin no body */
+    background-color: #f5f7fa;
   }
 }
+
 
 .image {
   width: 100%;
@@ -94,142 +191,16 @@ footer {
   max-height: 450px;
   border-radius: 30px;
 }
-@media (max-width: 768) {
+
+@media (max-width: 768px) {
   .image {
     max-width: 3000px;
   }
 }
+
 @media (max-width: 480px) {
   .image {
     max-width: 250px;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Aqui está como criar um botão branco com bordas arredondadas e um design elegante. Você pode personalizá-lo conforme sua necessidade:*/
-
-
-.rounded-button {
-  /* Estilo do botão */
-  background-color: white; /* Fundo branco */
-  color: #333; /* Cor do texto (preto suave) */
-  border: 2px solid #ddd; /* Borda sutil */
-  border-radius: 25px; /* Bordas arredondadas */
-  padding: 10px 20px; /* Espaçamento interno */
-  font-size: 16px; /* Tamanho da fonte */
-  font-weight: bold; /* Texto em negrito */
-  cursor: pointer; /* Cursor de clique */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve para profundidade */
-  transition: all 0.3s ease; /* Transição suave para hover */
-}
-
-.rounded-button:hover {
-  /* Efeito ao passar o mouse */
-  background-color: #f9f9f9; /* Fundo ligeiramente cinza */
-  border-color: #ccc; /* Borda mais destacada */
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
-  transform: scale(1.05); /* Leve aumento no tamanho */
-}
-
-.rounded-button:active {
-  /* Efeito ao clicar */
-  background-color: #f0f0f0; /* Fundo mais escuro */
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
-  transform: scale(0.97); /* Leve redução no tamanho */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-*/
-
-
-/* Estilo para o botão */
-.btn {
-    padding: 12px 24px; /* Espaçamento interno */
-    background-color: #007FFF; /* Cor azul */
-    color: white; /* Cor do texto */
-    font-weight: 600; /* Peso da fonte */
-    text-align: center; /* Alinhamento do texto */
-    border-radius: 8px; /* Cantos arredondados */
-    border: none; /* Remove borda */
-    cursor: pointer; /* Cursor de clique */
-    transition: background-color 0.3s ease; /* Transição suave */
-    text-decoration: none; /* Remove qualquer traço abaixo do texto */
-  }
-  
-  /* Efeito ao passar o mouse (hover) */
-  .btn:hover {
-    background-color: #0066cc; /* Cor azul mais escura */
-    box-shadow: none; /* Remove a sombra */
-  }
-  
-  
-
-  .glass-button {
-    /* Estilo de vidro */
-    background: rgba(255, 255, 255, 0.2); /* Fundo translúcido */
-    backdrop-filter: blur(10px); /* Desfoque do fundo */
-    -webkit-backdrop-filter: blur(10px); /* Suporte para navegadores antigos */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Bordas sutis */
-    border-radius: 12px; /* Arredondamento */
-    color: white; /* Cor do texto */
-    padding: 10px 20px; /* Espaçamento interno */
-    font-size: 16px; /* Tamanho da fonte */
-    font-weight: bold; /* Texto em negrito */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Sombra do texto para destacar */
-    cursor: pointer; /* Cursor de clique */
-    transition: all 0.3s ease; /* Animação suave */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
-  }
-  
-  .glass-button:hover {
-    /* Estilo ao passar o mouse */
-    background: rgba(255, 255, 255, 0.3); /* Fundo mais opaco */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
-    transform: scale(1.05); /* Leve aumento no tamanho */
-  }
-  
-  .glass-button:active {
-    /* Estilo ao clicar */
-    transform: scale(0.95); /* Leve redução no tamanho */
-    background: rgba(255, 255, 255, 0.25); /* Fundo um pouco mais escuro */
-  }
-  
-
-
-.card {
-  background-color: #fff;
-  border-radius: 20px;
-  margin: 20px;
-  padding: 20px;
-}  
