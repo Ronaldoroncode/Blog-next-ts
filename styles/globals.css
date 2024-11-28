@@ -35,7 +35,8 @@ nav {
   background-color: red;
   width: 100%;  
   grid-template-columns: 1fr;
-  grid-template-rows: 30px 30px 30px 30px;   
+  grid-template-rows: 30px 30px 30px 30px;
+  justify-items: end;    
 }
 
 aside {
@@ -52,9 +53,9 @@ footer {
 @media (max-width: 500px) {
   #container {
       grid-template-areas:
-          'header'
-          'aside'
-          'article'          
+          'header'          
+          'article' 
+          'aside'         
           'footer'
           'nav'; /* Move o nav para a parte inferior */
       grid-template-columns: 1fr; /* Configura apenas uma coluna */
@@ -62,14 +63,22 @@ footer {
 
 
   header {
-      position: fixed; /* Fixa o cabeçalho na parte inferior */     
+      height: 10 vh; 
+      justify-items: center;    
   }
   nav {
+    height: 10 vh;
     position: fixed; /* Fixa o cabeçalho na parte inferior */
     bottom: 0; /* Coloca o cabeçalho no fundo da tela */
     top: unset; /* Remove a fixação no topo */
     z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
     grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  }
+
+  article {
+    justify-items: center;
+    justify-content: center;
   }
 
 
